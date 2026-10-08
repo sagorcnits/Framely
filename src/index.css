@@ -1,0 +1,77 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+    --background: 240 6% 7%;
+    --foreground: 0 0% 96%;
+    --backdrop: 240 7% 4.5%;
+    --card: 240 5% 9%;
+    --card-foreground: 0 0% 96%;
+    --popover: 240 5% 11%;
+    --popover-foreground: 0 0% 96%;
+    --primary: 16 100% 62%;
+    --primary-foreground: 240 10% 6%;
+    --secondary: 240 4% 15%;
+    --secondary-foreground: 0 0% 96%;
+    --muted: 240 4% 15%;
+    --muted-foreground: 240 5% 64%;
+    --accent: 240 4% 18%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 72% 55%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 4% 17%;
+    --input: 240 4% 22%;
+    --ring: 16 100% 62%;
+    --radius: 0.6rem;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+
+  body {
+    @apply overflow-hidden bg-background font-sans text-foreground antialiased;
+    overflow-x: hidden;
+  }
+}
+
+@layer components {
+  /* Neutral dotted backdrop around the canvas. */
+  .canvas-backdrop {
+    background-color: hsl(var(--backdrop));
+    background-image: radial-gradient(hsl(0 0% 100% / 0.07) 1px, transparent 1px);
+    background-size: 18px 18px;
+  }
+
+  /* Shown behind transparent canvases in the preview only — never exported. */
+  .checkerboard {
+    background-color: #ffffff;
+    background-image: conic-gradient(#dcdce1 25%, transparent 0 50%, #dcdce1 0 75%, transparent 0);
+    background-size: 20px 20px;
+  }
+
+  .color-picker .react-colorful {
+    width: 100%;
+    height: 168px;
+  }
+  .color-picker .react-colorful__saturation {
+    border-radius: 8px 8px 0 0;
+  }
+  .color-picker .react-colorful__hue {
+    height: 14px;
+    border-radius: 0 0 8px 8px;
+  }
+  .color-picker .react-colorful__pointer {
+    width: 18px;
+    height: 18px;
+  }
+}
